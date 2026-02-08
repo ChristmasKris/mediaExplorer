@@ -1,0 +1,48 @@
+{
+	"name": "mediaexplorer",
+	"productName": "Media explorer",
+	"version": "1.0.0",
+	"description": "An image and video explorer",
+	"main": "./main.js",
+	"scripts": {
+		"start": "electron-forge start",
+		"build": "electron-forge make"
+	},
+	"fileAssociations": [
+		{
+			"ext": [
+				"jpg",
+				"jpeg",
+				"png",
+				"gif",
+				"mp4",
+				"jfif",
+				"webm",
+				"mp3",
+				"wav",
+				"ogg"
+			],
+			"name": "Media explorer",
+			"description": "An image and video explorer",
+			"role": "Editor",
+			"perMachine": true
+		}
+	],
+	"keywords": [],
+	"author": "Kris",
+	"license": "MIT",
+	"dependencies": {
+		"dotenv": "^17.2.4",
+		"electron-squirrel-startup": "^1.0.0"
+	},
+	"devDependencies": {
+		"@electron-forge/cli": "^7.2.0",
+		"@electron-forge/maker-deb": "^7.2.0",
+		"@electron-forge/maker-rpm": "^7.2.0",
+		"@electron-forge/maker-squirrel": "^7.2.0",
+		"@electron-forge/maker-zip": "^7.2.0",
+		"@electron-forge/plugin-auto-unpack-natives": "^7.2.0",
+		"electron": "28.1.1",
+		"electron-reloader": "^1.2.3"
+	}
+}

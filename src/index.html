@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Media explorer</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<script src="./FontAwesome.min.js"></script>
+		<script src="./FontAwesome2.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="./index.css"/>
+	</head>
+	<body>
+		<div class="page">
+			<div class="mediaDisplay"></div>
+			<div class="menu">
+				<div class="button previous" title="Previous">
+					<i class="fa-regular fa-angle-left"></i>
+				</div>
+				<div class="detail">
+					<span class="detailLabel">#</span>
+					<span class="detailValue mediaPositionDisplay"></span>
+				</div>
+				<div class="detail mediaWidthDetail">
+					<span class="detailLabel">Width:</span>
+					<span class="detailValue mediaWidthDisplay"></span>
+				</div>
+				<div class="detail mediaHeightDetail">
+					<span class="detailLabel">Height:</span>
+					<span class="detailValue mediaHeightDisplay"></span>
+				</div>
+				<div class="detail">
+					<span class="detailLabel">Size:</span>
+					<span class="detailValue mediaSizeDisplay"></span>
+				</div>
+				<div class="detail">
+					<span class="detailLabel">Name:</span>
+					<span class="detailValue mediaNameDisplay"></span>
+				</div>
+				<div class="detail">
+					<span class="detailLabel">Extension:</span>
+					<span class="detailValue mediaExtensionDisplay"></span>
+				</div>
+				<div class="showButtonHolder">
+					<button class="showButton" title="Show media in windows file explorer">Show in explorer</button>
+				</div>
+				<div class="button next" title="Next">
+					<i class="fa-regular fa-angle-right"></i>
+				</div>
+			</div>
+		</div>
+		<script src="./general.js"></script>
+		<script src="./index.js"></script>
+	</body>
+</html>
