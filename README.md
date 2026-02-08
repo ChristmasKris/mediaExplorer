@@ -1,6 +1,6 @@
 # Media Explorer
 
-![Media Explorer Window](./READMEimages/1.jpg "Media Explorer")
+![Media Explorer Window](./READMEimages/2.png "Media explorer 1.0.3")
 
 A lightweight, fast, and intuitive desktop application for browsing and managing images, videos, and audio files on Windows. Built with Electron and optimized for performance.
 
