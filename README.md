@@ -1,178 +1,138 @@
-# Media Explorer: A Desktop App for Effortless Media Browsing
+# Media Explorer
 
-![alt text](./READMEimages/1.jpg "Media explorer window")
+![Media Explorer Window](./READMEimages/1.jpg "Media Explorer")
 
-## What is Media Explorer?
+A lightweight, fast, and intuitive desktop application for browsing and managing images, videos, and audio files on Windows. Built with Electron and optimized for performance.
 
-**Media Explorer** is a desktop application built with Electron that allows users to quickly browse, view, and inspect images and videos on their PC. It supports a wide range of media formats and provides a smooth, distraction-free interface for navigating through folders of media files.
+## About
 
-## Why I Built It
+**Media Explorer** is designed for users who need a quick, distraction-free way to browse through media collections. Whether you're organizing photos, reviewing video footage, or listening to audio files, Media Explorer provides a clean interface with powerful features to enhance your workflow.
 
-I created Media Explorer to solve a common problem: most default file explorers and media viewers are either too limited or too cluttered for quickly previewing large sets of images and videos. I wanted a tool that was:
+## Key Features
 
-- Fast and lightweight
-- Able to handle both images and videos
-- Easy to use with keyboard or mouse
-- Minimalist, with just the essential info and controls
+### 📁 Multi-Format Support
+- **Image formats**: PNG, JPG, JPEG, WebP, SVG, GIF, BMP, ICO, JFIF, TIFF, RAW
+- **Video formats**: MP4, MKV, MOV, AVI, WMV, FLV, WebM
+- **Audio formats**: MP3, WAV, OGG
 
-This project demonstrates my ability to design and implement a cross-platform desktop app from scratch, focusing on user experience and performance.
+### 🖼️ Image Viewing & Editing
+- **Zoom and Pan**: Scroll to zoom in/out with cursor-tracked zoom. Drag to pan around zoomed images, with intelligent boundary constraints
+- **Sharp Pixels Toggle**: Switch between smooth interpolation and crisp-edged pixel rendering for pixel art or detailed inspection
+- **Flip Horizontally**: Mirror images for viewing from different perspectives
+- **Invert Background**: Switch between dark and light backgrounds to better view different image types
+- **Reset Button**: Instantly return to default zoom level and position
 
-## Technologies and Tools Used
+### 🎬 Video Features
+- **Thumbnail Previews**: Automatic thumbnail generation at 3.5 seconds into videos
+- **Video Controls**: Full playback controls including play, pause, seek, and volume
+- **Format Support**: Play multiple video formats with native HTML5 video player
+- **Metadata Display**: View video dimensions and file information in the sidebar
 
-- **Electron** for building the cross-platform desktop app
-- **JavaScript** (ES6+) for all application logic
-- **Node.js** APIs for filesystem access
-- **HTML5 & CSS3** for the UI
-- **Custom utility libraries** (see `general.js`)
-- **FontAwesome** for icons
-- **Roboto** font for a modern look
+### 🎵 Audio Playback
+- Built-in audio player with playback controls
+- Support for all major audio formats (MP3, WAV, OGG)
+- Responsive audio player interface
 
-## Key Features (with Real Code Examples)
+### ⌨️ Navigation
+- **Arrow Keys**: Navigate between media files in the folder using Left/Right arrow keys
+- **Visual Navigation Arrows**: Click on-screen arrows to browse next/previous files
+- **Keyboard Shortcuts**: Spacebar, Enter, or Escape to toggle the sidebar for more screen space
 
-### 1. Electron App Initialization
+### 📊 File Information Sidebar
+The sidebar displays detailed information about the current media:
+- File location (folder path)
+- Position in folder (e.g., "5 / 42")
+- Image/video dimensions (width × height in pixels)
+- Human-readable file size (KB, MB, GB with thousand separators)
+- Exact file size in bytes
+- Full filename
+- File extension
 
-The app uses Electron’s APIs to create a custom window, maximize it, and load the main UI:
+### ⚡ Performance Optimizations
+- Intelligent preloading of next/previous media files
+- Smooth 0.15s sidebar animations
+- Optimized opacity transitions for UI elements
+- Lazy thumbnail generation to prevent startup delays
+- Efficient memory management with bounded preload cache
 
-```js
-// src/main.js
-function createWindow() {
-	let screenSize = screen.getPrimaryDisplay().workAreaSize;
-	mainWindow = new BrowserWindow({
-    	width: screenSize.width * 0.6,
-    	height: screenSize.height * 0.8,
-		minWidth: 1216,
-		minHeight: 839,
-		center: true,
-		backgroundColor: '#000000',
-		darkTheme: true,
-		devTools: false,
-		icon: `${__dirname}/favicon.ico`,
-		show: false,
-    	webPreferences: {
-			nodeIntegration: true,
-			contextIsolation: false
-		}
-  	});
-	mainWindow.removeMenu();
-	mainWindow.loadFile(`${__dirname}/index.html`);
-	// ...existing code...
-}
-```
+### 🔧 Open With Integration
+- "Open With" dialog to launch media files with other applications
+- Direct system integration with Windows file handlers
 
-### 2. Clean, Responsive UI
+### 💾 File System Integration
+- "Show in Explorer" button to reveal files in Windows File Explorer
+- Direct access to file locations for easy organization
 
-The interface is built with HTML and styled with CSS for a modern, dark-themed look:
+### 🎨 User Experience
+- **Dark Theme**: Easy on the eyes, perfect for media review sessions
+- **Minimal Interface**: Focus on content, not clutter
+- **Responsive Design**: Adapts to different screen sizes and resolutions
+- **Smooth Animations**: Polished transitions and interactions
+- **Centered Layout**: Media displays optimally centered regardless of window size
 
-```html
-<!-- src/index.html -->
-<div class="page">
-	<div class="mediaDisplay"></div>
-	<div class="menu">
-		<div class="button previous" title="Previous">
-			<i class="fa-regular fa-angle-left"></i>
-		</div>
-		<!-- ... file info and navigation ... -->
-		<div class="button next" title="Next">
-			<i class="fa-regular fa-angle-right"></i>
-		</div>
-	</div>
-</div>
-```
+## System Requirements
 
-```css
-/* src/index.css */
-:root {
-	--black: #000000;
-	--white: #ffffff;
-	--mainColor: #2a65e4;
-	--mainColorDark: #1952cc;
-	--shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-}
-.page {
-	width: 100vw;
-	height: 100vh;
-	background-color: var(--black);
-}
-.menu {
-	background-color: #1a1a1a;
-	border-radius: 5px;
-	/* ...existing code... */
-}
-```
+- **OS**: Windows 11 (or Windows 10)
+- **RAM**: 512 MB minimum
+- **Disk Space**: ~200 MB for installation
 
-### 3. Media Navigation and Info Display
+## Installation
 
-Navigate through media files, view details like size, dimensions, and file type, and open the file location in Explorer:
+Download and run the latest installer: `Media explorer installer.exe`
 
-```js
-// src/index.js
-listener.add(previousButton, 'click', () => {
-	if (prevMediaPath === null) {
-		return;
-	}
-	openFile(null, prevMediaPath, 'prev');
-});
+The installer will:
+- Install the application to `%LocalAppData%\Programs\mediaexplorer\`
+- Create Start Menu and Desktop shortcuts
+- Register Media Explorer as the default application for supported media file types
 
-listener.add(nextButton, 'click', () => {
-	if (nextMediaPath === null) {
-		return;
-	}
-	openFile(null, nextMediaPath, 'next');
-});
+## Getting Started
 
-listener.add(showButton, 'click', () => {
-	shell.showItemInFolder(path.join(directory, currentFile));
-});
-```
+1. **Open a media file** from Windows File Explorer - right-click and select "Open with" → Media Explorer
+2. **Browse files** using arrow keys or on-screen navigation arrows
+3. **Toggle the sidebar** with Spacebar, Enter, or Escape for full-screen viewing
+4. **Adjust image display** using zoom, pan, flip, or background inversion options
+5. **View file details** in the sidebar while browsing through your collection
 
-### 4. Image and Video Handling
+## Keyboard Shortcuts
 
-The app supports both images and videos, displaying them with the correct HTML element and extracting metadata:
+| Shortcut | Action |
+|----------|--------|
+| Left Arrow | Navigate to previous media file |
+| Right Arrow | Navigate to next media file |
+| Spacebar / Enter / Escape | Toggle sidebar for full-screen view |
+| Mouse Wheel | Zoom in/out on images |
+| Drag | Pan around zoomed images |
 
-```js
-// src/index.js
-if(['.mp4', '.mkv', '.mov', '.avi', '.wmv', '.flv'].includes(path.extname(baseName).toLowerCase())) {
-	mediaEl = strToEl(`<video src="file://${directory.replace(/\\/g, '/')}/${displayBaseName}" controls></video>`);
-	listener.add(mediaEl, 'loadeddata', () => {
-		displayMediaSizes();
-	});
-} else {
-	mediaEl = strToEl(`<img src="file://${directory.replace(/\\/g, '/')}/${displayBaseName}"/>`);
-	listener.add(mediaEl, 'load', (e) => {
-		displayMediaSizes();
-		// ...center image...
-	});
-}
-```
+## Why Use Media Explorer?
 
-### 5. Smooth Transitions and User Experience
+- **Fast Startup**: Optimized for quick launching and instant media viewing
+- **Smooth Performance**: Efficient rendering and intelligent preloading
+- **Intuitive Controls**: Familiar keyboard and mouse interactions
+- **Comprehensive Format Coverage**: One app for images, videos, and audio
+- **Distraction-Free**: Clean interface focused entirely on media content
+- **Deep Windows Integration**: Native file associations for seamless opening
+- **Detailed File Information**: View all file metadata at a glance
 
-Media transitions are animated for a polished feel, and the UI updates dynamically as you browse:
+## Technologies
 
-```js
-// src/index.js
-if (!firstMediaInit) {
-	if (dir === 'next') {
-		mediaEl.style.transform = 'translateX(100vw)';
-	} else {
-		mediaEl.style.transform = 'translateX(-100vw)';
-	}
-	mediaDisplay.firstElementChild.style.transform = 'translateX(0)';
-	mediaDisplay.firstElementChild.style.transition = 'transform 0.3s';
-	mediaEl.style.transition = 'transform 0.3s';
-}
-```
+- **Electron** 40.2.1 - Cross-platform desktop framework
+- **JavaScript (ES6+)** - Application logic with ES modules
+- **HTML5 & CSS3** - User interface and styling
+- **Node.js** - System integration and file operations
+- **electron-builder** - Installation and packaging
 
-## What I Learned
+## File Association
 
-Building Media Explorer taught me a lot about:
+Media Explorer is automatically registered for common media formats upon installation. Supported file types include:
+- **Images**: PNG, JPG, JPEG, WebP, SVG, GIF, BMP, ICO, JFIF, TIFF, RAW
+- **Videos**: MP4, MKV, MOV, AVI, WMV, FLV, WebM
+- **Audio**: MP3, WAV, OGG
 
-- **Desktop app development** with Electron and Node.js
-- Handling **filesystem operations** securely and efficiently
-- Creating a **responsive, modern UI** with HTML and CSS
-- Managing **media playback and image rendering** in the browser context
-- Designing for **usability and performance** in real-world scenarios
+If you need to change default apps, go to **Windows Settings → Default apps** and search for specific file types.
 
-This project is a great example of my ability to take an idea from concept to a polished, user-friendly application, using modern JavaScript and desktop technologies.
+---
 
-If you’d like to know more about the project, feel free to reach out!
+**Version**: 1.0.1  
+**Author**: Kris  
+**License**: MIT  
+**Last Updated**: February 2026

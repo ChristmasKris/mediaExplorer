@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Media explorer</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<link rel="icon" type="image/x-icon" href="./assets/favicon.ico"/>
+		<link rel="stylesheet" type="text/css" href="./index.css"/>
+		<script src="./FontAwesome.min.js"></script>
+	</head>
+	<body>
+		<div class="noMediaPlaceholder">
+			<span class="noMediaTitle">Welcome</span>
+			<span class="noMediaSubtitle">Open the app with an image, video or audio file</span>
+		</div>
+		<div class="page">
+			<div class="sidebar">
+				<div class="inner">
+					<h1>Menu</h1>
+					<div class="item">
+						<span class="name">Folder</span>
+						<span class="value sidebarFolder"></span>
+					</div>
+					<div class="item">
+						<span class="name">Number</span>
+						<span class="value sidebarIndex"></span>
+					</div>
+					<div class="item sidebarWidthItem">
+						<span class="name">Width</span>
+						<span class="value sidebarWidth"></span>
+					</div>
+					<div class="item sidebarHeightItem">
+						<span class="name">Height</span>
+						<span class="value sidebarHeight"></span>
+					</div>
+					<div class="item">
+						<span class="name">File size</span>
+						<span class="value sidebarFileSize"></span>
+					</div>
+					<div class="item">
+						<span class="name">Exact file size</span>
+						<span class="value sidebarExactFileSize"></span>
+					</div>
+					<div class="item">
+						<span class="name">Name</span>
+						<span class="value sidebarName"></span>
+					</div>
+					<div class="item">
+						<span class="name">Extension</span>
+						<span class="value sidebarExtension"></span>
+					</div>
+					<div class="checkbox sharpPixelsCheckbox">
+						<span class="name">Sharp pixels</span>
+						<input type="checkbox"/>
+					</div>
+					<div class="checkbox invertBackgroundCheckbox">
+						<span class="name">Invert background color</span>
+						<input type="checkbox"/>
+					</div>
+					<div class="checkbox flipCheckbox">
+						<span class="name">Flip sides</span>
+						<input type="checkbox"/>
+					</div>
+					<button class="resetImage">Reset</button>
+					<button class="openWith">Open with app</button>
+					<button class="showInExplorer">Show in explorer</button>
+				</div>
+			</div>
+			<div class="mediaDisplay">
+				<div class="leftArrow" title="Previous media">
+					<i class="fa-solid fa-angle-left"></i>
+				</div>
+				<div class="rightArrow" title="Next media">
+					<i class="fa-solid fa-angle-right"></i>
+				</div>
+			</div>
+		</div>
+		<script type="module" src="./index.js"></script>
+	</body>
+</html>

@@ -1,48 +1,99 @@
 {
 	"name": "mediaexplorer",
 	"productName": "Media explorer",
-	"version": "1.0.0",
-	"description": "An image and video explorer",
+	"version": "1.0.3",
+	"description": "An image, video and audio explorer.",
+	"author": "Kristian Benko",
+	"copyright": "Copyright © 2026 Kristian Benko. All rights reserved.",
 	"main": "./main.js",
+	"type": "module",
 	"scripts": {
-		"start": "electron-forge start",
-		"build": "electron-forge make"
+		"start": "electron .",
+		"build": "electron-builder"
 	},
-	"fileAssociations": [
-		{
-			"ext": [
-				"jpg",
-				"jpeg",
-				"png",
-				"gif",
-				"mp4",
-				"jfif",
-				"webm",
-				"mp3",
-				"wav",
-				"ogg"
-			],
-			"name": "Media explorer",
-			"description": "An image and video explorer",
-			"role": "Editor",
-			"perMachine": true
+	"build": {
+		"appId": "com.mediaexplorer.app",
+		"productName": "Media explorer",
+		"artifactName": "Media explorer installer.exe",
+		"directories": {
+			"output": "build"
+		},
+		"files": [
+			"**/*",
+			"!build",
+			"!dist",
+			"!out",
+			"!testFiles",
+			"!README.md",
+			"!zInfo.txt",
+			"!.vscode",
+			"!.env"
+		],
+		"win": {
+			"target": "nsis",
+			"icon": "client/assets/favicon.ico",
+			"fileAssociations": [
+				{
+					"ext": [
+						"png",
+						"jpg",
+						"jpeg",
+						"webp",
+						"ico",
+						"svg",
+						"jfif",
+						"gif",
+						"bmp",
+						"tiff",
+						"raw"
+					],
+					"name": "Image File",
+					"description": "Image File",
+					"icon": "client/assets/favicon.ico"
+				},
+				{
+					"ext": [
+						"mp4",
+						"mkv",
+						"mov",
+						"avi",
+						"wmv",
+						"flv",
+						"webm"
+					],
+					"name": "Video File",
+					"description": "Video File",
+					"icon": "client/assets/favicon.ico"
+				},
+				{
+					"ext": [
+						"mp3",
+						"wav",
+						"ogg"
+					],
+					"name": "Audio File",
+					"description": "Audio File",
+					"icon": "client/assets/favicon.ico"
+				}
+			]
+		},
+		"nsis": {
+			"oneClick": false,
+			"allowToChangeInstallationDirectory": true,
+			"createDesktopShortcut": false,
+			"createStartMenuShortcut": true,
+			"perMachine": false,
+			"uninstallDisplayName": "Media explorer"
 		}
-	],
+	},
 	"keywords": [],
-	"author": "Kris",
 	"license": "MIT",
 	"dependencies": {
-		"dotenv": "^17.2.4",
-		"electron-squirrel-startup": "^1.0.0"
+		"dotenv": "^17.2.4"
 	},
 	"devDependencies": {
-		"@electron-forge/cli": "^7.2.0",
-		"@electron-forge/maker-deb": "^7.2.0",
-		"@electron-forge/maker-rpm": "^7.2.0",
-		"@electron-forge/maker-squirrel": "^7.2.0",
-		"@electron-forge/maker-zip": "^7.2.0",
-		"@electron-forge/plugin-auto-unpack-natives": "^7.2.0",
-		"electron": "28.1.1",
+		"electron": "^40.2.1",
+		"electron-builder": "^26.7.0",
 		"electron-reloader": "^1.2.3"
 	}
 }
